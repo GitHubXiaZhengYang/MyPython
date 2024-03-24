@@ -224,7 +224,7 @@ dynamic_offset(动态偏移(粒子与拖尾的距离偏移) 参数 0-5)(d) 当�
 static_offset(静态偏移(粒子与拖尾的时间偏移) 参数 0-5)(s) 当前值为{options["static_offset"]})
 gravity(重力 参数: 小数)(g) 当前值为{options["gravity"]})
 trail_colours(粒子颜色 参数: RGB 格式: [(R, G, B), ...])(t) 当前值为{options["trail_colours"]})
-font(字体 参数: 字体名 格式: SongTi(宋体))(f) 当前值为{options["font"]})
+font(字体 参数: 字体名(宋体/微软雅黑/楷体) 格式: SongTi(宋体))(f) 当前值为{options["font"]})
 glyph(字形大小)(l) 当前值为{options["glyph"]})
 greetings(背景文字/祝福语)(e) 当前值为{options["greetings"]})
 bold(文字加粗 参数: True/False)(b) 当前值为{options["bold"]})
