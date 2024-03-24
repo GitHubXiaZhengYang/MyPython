@@ -62,8 +62,8 @@ class InitFirework:
                 particle.show(screen)
 
     def explode(self):
-        amount = randint(self.min_max_particles.x, self.min_max_particles.y)
-        for i in range(amount):
+        amount = randint(int(self.min_max_particles.x), int(self.min_max_particles.y))
+        for _ in range(amount):
             self.particles.append(
                 CreateFirework(self.yan_hua.pos.x, self.yan_hua.pos.y, False, self.colours))
 
@@ -102,8 +102,8 @@ class CreateFirework:
             self.vel = vector(0, -randint(17, 20))
             self.size = 5
             self.colour = colour
-            for i in range(5):
-                self.trails.append(DrawFirework(i, self.size, True))
+            for n in range(5):
+                self.trails.append(DrawFirework(n, self.size, True))
         else:
             if not vec:
                 self.vel = vector(uniform(-1, 1), uniform(-1, 1))
@@ -114,8 +114,8 @@ class CreateFirework:
             self.vel.y *= randint(7, self.explosion_radius + 2)
             self.size = randint(2, 4)
             self.colour = choice(colour)
-            for i in range(5):
-                self.trails.append(DrawFirework(i, self.size, False))
+            for n in range(5):
+                self.trails.append(DrawFirework(n, self.size, False))
 
     def apply_force(self, force):
         self.acc += force
@@ -260,12 +260,13 @@ Tips: 修改需谨慎！修改的格式错误将导致程序崩溃！
                     options[old_options[setting]] = vector(0, value_g)
                 elif setting == "t":
                     value_t = literal_eval(input(f"请输入{old_options[setting]}的值: ").replace("\n", ""))
-                    options[old_options[setting]] = value_t
+                    value_new = literal_eval(value_t)
+                    options[old_options[setting]] = value_new
                 else:
                     options[old_options[setting]] = input(f"请输入{old_options[setting]}的值: ").replace("\n", "")
 
-                with open("bin/options.txt", "w") as f:
-                    f.write(f"""screen_width: {options["screen_width"]}
+                with open("bin/options.txt", "w") as file:
+                    file.write(f"""screen_width: {options["screen_width"]}
 screen_height: {options["screen_height"]}
 dynamic_offset: {options["dynamic_offset"]}
 static_offset: {options["static_offset"]}
@@ -318,11 +319,11 @@ def main():
                         yan_hua_list.append(InitFirework(100))
                         yan_hua_list.append(InitFirework(700))
                 if event.key == pygame.K_0:
-                    sleep(1)
                     pygame.mixer.music.pause()
-                    options_setting()
-                    pygame.mixer.music.unpause()
                     sleep(1)
+                    options_setting()
+                    sleep(1)
+                    pygame.mixer.music.unpause()
 
         if options["font"] == "WeiRuanYaHei":
             font = pygame.font.Font("bin/font/WeiRuanYaHei.ttc", options["glyph"])
