@@ -4,7 +4,7 @@
 
 import pygame
 from random import randint, uniform, choice
-import math
+import math_game
 
 vector = pygame.math.Vector2
 gravity = vector(0, 0.3)

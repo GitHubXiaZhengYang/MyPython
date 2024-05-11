@@ -2,7 +2,7 @@ from time import sleep
 
 import pygame
 from random import randint, uniform, choice
-import math
+import math_game
 from ast import literal_eval
 
 vector = pygame.math.Vector2
